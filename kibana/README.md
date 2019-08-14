@@ -16,8 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`7.3.0`](https://github.com/docker-library/kibana/blob/649eaa8423334d8780c80d7eb4dc7b5325a72361/7/Dockerfile)
--	[`6.8.2`](https://github.com/docker-library/kibana/blob/649eaa8423334d8780c80d7eb4dc7b5325a72361/6/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `kibana` does not support the currently selected architecture (`i386`).
 
 # Quick reference
 
