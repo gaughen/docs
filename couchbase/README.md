@@ -16,9 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`latest`, `enterprise`, `6.0.2`, `enterprise-6.0.2`](https://github.com/couchbase/docker/blob/9e1411558732561359499199c0fec2104bb0ccda/enterprise/couchbase-server/6.0.2/Dockerfile)
--	[`6.5.0-beta`](https://github.com/couchbase/docker/blob/9e1411558732561359499199c0fec2104bb0ccda/enterprise/couchbase-server/6.5.0-beta/Dockerfile)
--	[`community`, `community-6.0.0`](https://github.com/couchbase/docker/blob/9e1411558732561359499199c0fec2104bb0ccda/community/couchbase-server/6.0.0/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `couchbase` does not support the currently selected architecture (`arm32v7`).
 
 # Quick reference
 
