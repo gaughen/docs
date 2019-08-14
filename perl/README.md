@@ -41,6 +41,8 @@ WARNING:
 -	[`5.26-slim-threaded`, `5.26.3-slim-threaded`, `5.26-slim-threaded-buster`, `5.26.3-slim-threaded-buster`](https://github.com/perl/docker-perl/blob/01044791941b91f99e970c3f1256d9dc0daee5e4/5.026.003-slim,threaded-buster/Dockerfile)
 -	[`5.26-slim-threaded-stretch`, `5.26.3-slim-threaded-stretch`](https://github.com/perl/docker-perl/blob/01044791941b91f99e970c3f1256d9dc0daee5e4/5.026.003-slim,threaded-stretch/Dockerfile)
 
+[![arm64v8/perl build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/perl.svg?label=arm64v8/perl%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/perl/)
+
 # Quick reference
 
 -	**Where to get help**:  
@@ -79,7 +81,7 @@ Perl is a high-level, general-purpose, interpreted, dynamic programming language
 ## Create a `Dockerfile` in your Perl app project
 
 ```dockerfile
-FROM perl:5.20
+FROM arm64v8/perl:5.20
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 CMD [ "perl", "./your-daemon-or-script.pl" ]
@@ -97,15 +99,15 @@ $ docker run -it --rm --name my-running-app my-perl-app
 For many simple, single file projects, you may find it inconvenient to write a complete `Dockerfile`. In such cases, you can run a Perl script by using the Perl Docker image directly:
 
 ```console
-$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp perl:5.20 perl your-daemon-or-script.pl
+$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp arm64v8/perl:5.20 perl your-daemon-or-script.pl
 ```
 
 ## Example: Creating a reusable Carton image for Perl projects
 
-Suppose you have a project that uses [Carton](https://metacpan.org/pod/Carton) to manage Perl dependencies. You can create a `perl:carton` image that makes use of the [ONBUILD](https://docs.docker.com/engine/reference/builder/#onbuild) instruction in its `Dockerfile`, like this:
+Suppose you have a project that uses [Carton](https://metacpan.org/pod/Carton) to manage Perl dependencies. You can create a `arm64v8/perl:carton` image that makes use of the [ONBUILD](https://docs.docker.com/engine/reference/builder/#onbuild) instruction in its `Dockerfile`, like this:
 
 ```dockerfile
-FROM perl:5.26
+FROM arm64v8/perl:5.26
 
 RUN cpanm Carton \
     && mkdir -p /usr/src/app
@@ -117,18 +119,18 @@ ONBUILD RUN carton install
 ONBUILD COPY . /usr/src/app
 ```
 
-Then, in your Carton project, you can now reduce your project's `Dockerfile` into a single line of `FROM perl:carton`, which may be enough to build a stand-alone image.
+Then, in your Carton project, you can now reduce your project's `Dockerfile` into a single line of `FROM arm64v8/perl:carton`, which may be enough to build a stand-alone image.
 
-Having a single `perl:carton` base image is useful especially if you have multiple Carton-based projects in development, to avoid "boilerplate" coding of installing Carton and/or copying the project source files into the derived image. Keep in mind, though, about certain things to consider when using the Perl image in this way:
+Having a single `arm64v8/perl:carton` base image is useful especially if you have multiple Carton-based projects in development, to avoid "boilerplate" coding of installing Carton and/or copying the project source files into the derived image. Keep in mind, though, about certain things to consider when using the Perl image in this way:
 
 -	This kind of base image will hide the useful bits (such as the`COPY`/`RUN` above) in the image, separating it from more specific Dockerfiles using the base image. This might lead to confusion when creating further derived images, so be aware of how [ONBUILD triggers](https://docs.docker.com/engine/reference/builder/#onbuild) work and plan appropriately.
 -	There is the cost of maintaining an extra base image build, so if you're working on a single Carton project and/or plan to publish it, then it may be more preferable to derive directly from a versioned `perl` image instead.
 
 # Image Variants
 
-The `perl` images come in many flavors, each designed for a specific use case.
+The `arm64v8/perl` images come in many flavors, each designed for a specific use case.
 
-## `perl:<version>`
+## `arm64v8/perl:<version>`
 
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
 
@@ -136,9 +138,9 @@ This tag is based off of [`buildpack-deps`](https://hub.docker.com/_/buildpack-d
 
 Some of these tags may have names like buster or stretch in them. These are the suite code names for releases of [Debian](https://wiki.debian.org/DebianReleases) and indicate which release the image is based on.
 
-## `perl:<version>-slim`
+## `arm64v8/perl:<version>-slim`
 
-This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run `perl`. Unless you are working in an environment where *only* the `perl` image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
+This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run `arm64v8/perl`. Unless you are working in an environment where *only* the `arm64v8/perl` image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
 
 # License
 

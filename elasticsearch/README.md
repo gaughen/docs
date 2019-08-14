@@ -16,8 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`7.3.0`](https://github.com/docker-library/elasticsearch/blob/c0d76b639100772a683dcca7112965812e8cae70/7/Dockerfile)
--	[`6.8.2`](https://github.com/docker-library/elasticsearch/blob/c0d76b639100772a683dcca7112965812e8cae70/6/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `elasticsearch` does not support the currently selected architecture (`arm64v8`).
 
 # Quick reference
 
