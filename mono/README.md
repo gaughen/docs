@@ -16,12 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`6.0.0.313`, `latest`, `6.0.0`, `6.0`, `6`](https://github.com/mono/docker/blob/c47c852008be6934ac650f282c18c70f2cfec72f/6.0.0.313/Dockerfile)
--	[`6.0.0.313-slim`, `slim`, `6.0.0-slim`, `6.0-slim`, `6-slim`](https://github.com/mono/docker/blob/c47c852008be6934ac650f282c18c70f2cfec72f/6.0.0.313/slim/Dockerfile)
--	[`5.20.1.34`, `5.20.1`, `5.20`, `5`](https://github.com/mono/docker/blob/c47c852008be6934ac650f282c18c70f2cfec72f/5.20.1.34/Dockerfile)
--	[`5.20.1.34-slim`, `5.20.1-slim`, `5.20-slim`, `5-slim`](https://github.com/mono/docker/blob/c47c852008be6934ac650f282c18c70f2cfec72f/5.20.1.34/slim/Dockerfile)
--	[`5.18.1.28`, `5.18.1`, `5.18`](https://github.com/mono/docker/blob/c47c852008be6934ac650f282c18c70f2cfec72f/5.18.1.28/Dockerfile)
--	[`5.18.1.28-slim`, `5.18.1-slim`, `5.18-slim`](https://github.com/mono/docker/blob/c47c852008be6934ac650f282c18c70f2cfec72f/5.18.1.28/slim/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `mono` does not support the currently selected architecture (`arm32v6`).
 
 # Quick reference
 
@@ -66,7 +63,7 @@ This image will run stand-alone Mono console apps.
 This example Dockerfile will run an executable called `TestingConsoleApp.exe`.
 
 ```dockerfile
-FROM mono:3.10-onbuild
+FROM arm32v6/mono:3.10-onbuild
 CMD [ "mono",  "./TestingConsoleApp.exe" ]
 ```
 
@@ -88,18 +85,6 @@ You should see any output from your app now.
 This Docker image is provided by Xamarin, for users of the Mono Project.
 
 Thanks to [Michael Friis](http://friism.com/) for his preliminary work.
-
-# Image Variants
-
-The `mono` images come in many flavors, each designed for a specific use case.
-
-## `mono:<version>`
-
-This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
-
-## `mono:<version>-slim`
-
-This image does not contain the common packages contained in the default tag and only contains the minimal packages needed to run `mono`. Unless you are working in an environment where *only* the `mono` image will be deployed and you have space constraints, we highly recommend using the default image of this repository.
 
 # License
 
