@@ -16,12 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`8.0`, `8`](https://github.com/oracle/container-images/blob/573754fe56e7e8d570c554e8152fc9606c89561d/8.0/Dockerfile)
--	[`8-slim`](https://github.com/oracle/container-images/blob/573754fe56e7e8d570c554e8152fc9606c89561d/8-slim/Dockerfile)
--	[`7.6`, `7`, `latest`](https://github.com/oracle/container-images/blob/573754fe56e7e8d570c554e8152fc9606c89561d/7.6/Dockerfile)
--	[`7-slim`](https://github.com/oracle/container-images/blob/573754fe56e7e8d570c554e8152fc9606c89561d/7-slim/Dockerfile)
--	[`6.10`, `6`](https://github.com/oracle/container-images/blob/573754fe56e7e8d570c554e8152fc9606c89561d/6.10/Dockerfile)
--	[`6-slim`](https://github.com/oracle/container-images/blob/573754fe56e7e8d570c554e8152fc9606c89561d/6-slim/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `oraclelinux` does not support the currently selected architecture (`ppc64le`).
 
 # Quick reference
 
@@ -56,7 +53,7 @@ Oracle Linux is an open-source operating system available under the GNU General 
 
 ## How to use these images
 
-The Oracle Linux images are intended for use in the **FROM** field of a downstream `Dockerfile`. For example, to use the latest optimized Oracle Linux 7 image, specify `FROM oraclelinux:7-slim`.
+The Oracle Linux images are intended for use in the **FROM** field of a downstream `Dockerfile`. For example, to use the latest optimized Oracle Linux 7 image, specify `FROM ppc64le/oraclelinux:7-slim`.
 
 ## Official Resources
 

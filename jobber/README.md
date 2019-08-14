@@ -16,7 +16,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`1.4.0-alpine3.10`, `1.4-alpine3.10`, `1-alpine3.10`, `latest`](https://github.com/dshearer/jobber-docker/blob/64d2a0778ae73986cb90f1c374d9dfb42c9b8483/alpine3.10/Dockerfile)
+**No supported tags found!**
+
+It is very likely that `jobber` does not support the currently selected architecture (`ppc64le`).
 
 # Quick reference
 
